@@ -12,6 +12,7 @@ lib-cov
 publish
 .vscode
 .idea
+.vs
 
 pids
 logs
