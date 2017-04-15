@@ -437,10 +437,10 @@ v8::Local<v8::Object> ClrFunc::MarshalCLRObjectToV8(MonoObject* netdata, MonoExc
         }
     }
 
-//    if (*exc)
-//    {
-//        return scope.Escape(v8::Local<v8::Object>::Cast(ClrFunc::MarshalCLRExceptionToV8(*exc)));
-//    }
+    // if (*exc != NULL) 
+    // {
+    //     return scope.Escape(v8::Local<v8::Object>::Cast(ClrFunc::MarshalCLRExceptionToV8(*exc)));
+    // }
 
     return scope.Escape(result);
 }

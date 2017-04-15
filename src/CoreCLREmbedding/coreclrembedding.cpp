@@ -582,18 +582,17 @@ HRESULT CoreClrEmbedding::Initialize(BOOL debugMode)
 
 	for (deps_entry_t entry : resolver.m_deps->get_entries(deps_entry_t::asset_types::runtime))
 	{
-		if (entry.library_name == _X("Edge.js"))
+		if (entry.library_name == _X("edge.js"))
 		{
 			foundEdgeJs = true;
 			break;
 		}
 	}
-
-	if (!foundEdgeJs)
-	{
-		throwV8Exception("Failed to find the Edge.js runtime assembly in the dependency manifest list.  Make sure that your project.json file has a reference to the Edge.js NuGet package.");
-		return E_FAIL;
-	}
+	// if (!foundEdgeJs)
+	// {
+	// 	throwV8Exception("Failed to find the Edge.js runtime assembly in the dependency manifest list.  Make sure that your project.json file has a reference to the Edge.js NuGet package.");
+	// 	return E_FAIL;
+	// }
 
     SetCallV8FunctionDelegateFunction setCallV8Function;
 
