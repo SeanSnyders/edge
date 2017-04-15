@@ -10,6 +10,7 @@
     <PackageTags>node.js;node;.net;edge;edge.js;v8;clr;coreclr;mono;interop;javascript</PackageTags>
     <PackageLicenseUrl>https://raw.githubusercontent.com/tjanczuk/edge/master/LICENSE.txt</PackageLicenseUrl>
     <NetStandardImplicitPackageVersion Condition=" '$(TargetFramework)' == 'netstandard1.6' ">1.6.0</NetStandardImplicitPackageVersion>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
   </PropertyGroup>
 
   <ItemGroup>
