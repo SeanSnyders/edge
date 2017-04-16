@@ -16,11 +16,9 @@ install:
  - sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
  - sudo apt-get update
  - sudo apt-get install mono-devel
+ - sudo apt-get install dotnet-dev-1.0.1
  - npm install
 
 script:
  - npm test
- - sudo apt-get autoremove mono-devel -y
- - sudo apt-get install dotnet-dev-1.0.1
- - npm install
  - EDGE_USE_CORECLR=1 node tools/test.js
