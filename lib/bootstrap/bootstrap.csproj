@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.6</TargetFramework>
+    <TargetFramework>netcoreapp1.0</TargetFramework>
     <PreserveCompilationContext>true</PreserveCompilationContext>
     <AssemblyName>bootstrap</AssemblyName>
     <PackageId>bootstrap</PackageId>
@@ -9,9 +9,9 @@
     <RuntimeFrameworkVersion>1.0.4</RuntimeFrameworkVersion>
   </PropertyGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.6' ">
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp1.0' ">
     <ProjectReference Include="..\..\src\double\Edge.js\Edge.js.csproj" />
-    <ProjectReference Include="..\..\node_modules\edge-cs\src\Edge.js.CSharp\\Edge.js.CSharp.csproj" />
+    <PackageReference Include="Edge.js.CSharp" Version="1.2.0" />
   </ItemGroup>
 
 </Project>
