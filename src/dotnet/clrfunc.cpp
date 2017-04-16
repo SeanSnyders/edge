@@ -1,7 +1,7 @@
 #include "edge.h"
 
 #using <System.Core.dll>
-
+//using namespace System::Runtime::InteropServices;
 ClrFunc::ClrFunc()
 {
     // empty
@@ -143,6 +143,7 @@ v8::Local<v8::Value> ClrFunc::MarshalCLRToV8(System::Object^ netdata)
     }
 
     System::Type^ type = netdata->GetType();
+
     if (type == System::String::typeid)
     {
         jsdata = stringCLR2V8((System::String^)netdata);
@@ -343,7 +344,13 @@ v8::Local<v8::Object> ClrFunc::MarshalCLRObjectToV8(System::Object^ netdata)
     v8::Local<v8::Object> result = Nan::New<v8::Object>();
     System::Type^ type = netdata->GetType();
 
-    if (0 == System::String::Compare(type->FullName, "System.Reflection.RuntimeMethodInfo")) {
+//    const char* cType = (const char*)(void*)Marshal::StringToHGlobalAnsi((System::String^)type->FullName);
+//    DBG(cType);
+
+    if (0 == System::String::Compare(type->FullName, "System.Reflection.RuntimeMethodInfo")
+        || 0 == System::String::Compare(type->FullName, "System.Reflection.RuntimeModule")
+        || 0 == System::String::Compare(type->FullName, "System.Reflection.RuntimeAssembly")
+        || 0 == System::String::Compare(type->FullName, "System.Reflection.RuntimeConstructorInfo")) {
         // Avoid stack overflow due to self-referencing reflection elements
         return scope.Escape(result);
     }
