@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp1.0' ">
-    <PackageReference Include="Edge.js" Version="6.5.1" />
+    <ProjectReference Include="..\..\src\double\Edge.js\Edge.js.csproj" />
     <PackageReference Include="Edge.js.CSharp" Version="1.2.0" />
   </ItemGroup>
 
