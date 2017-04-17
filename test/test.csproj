@@ -16,7 +16,7 @@
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp1.0' ">
     <ProjectReference Include="..\src\double\Edge.js\Edge.js.csproj" />
-    <ProjectReference Include="..\node_modules\edge-cs\src\Edge.js.CSharp\Edge.js.CSharp.csproj" >
+    <ProjectReference Include="..\node_modules\edge-cs\src\Edge.js.CSharp\Edge.js.CSharp.xproj" >
       <Private>true</Private>
     </ProjectReference>
     <PackageReference Include="System.Runtime" Version="4.3.0" />
