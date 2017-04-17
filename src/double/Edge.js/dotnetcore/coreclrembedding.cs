@@ -1134,10 +1134,7 @@ public class CoreCLREmbedding
                 Marshal.WriteIntPtr(objectData.propertyNames, counter*PointerSize, Marshal.StringToHGlobalAnsi(propertyAccessor.Item1));
 
                 V8Type propertyType;
-                if(String.Compare(clrObject.GetType().FullName, "System.Reflection.RuntimeMethodInfo") == 0
-                || String.Compare(clrObject.GetType().FullName, "System.Reflection.RuntimeAssembly") == 0
-                || String.Compare(clrObject.GetType().FullName, "System.Reflection.RuntimeModule") == 0
-                || String.Compare(clrObject.GetType().FullName, "System.Reflection.RuntimeConstructorInfo") == 0)
+                if(clrObject.GetType().FullName.StartsWith("System.Reflection"))
                 {
                     propertyType = V8Type.String;
                     Marshal.WriteIntPtr(objectData.propertyValues, counter*PointerSize, Marshal.StringToHGlobalAnsi(string.Empty));

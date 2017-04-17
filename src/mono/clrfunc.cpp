@@ -385,7 +385,8 @@ v8::Local<v8::Object> ClrFunc::MarshalCLRObjectToV8(MonoObject* netdata, MonoExc
 
     if ((0 == strcmp(mono_class_get_name(klass), "MonoType")
         && 0 == strcmp(mono_class_get_namespace(klass), "System"))
-        || 0 == strcmp(mono_class_get_namespace(klass), "System.Reflection"))
+        || 0 == strcmp(mono_class_get_namespace(klass), "System.Reflection")
+        || strncmp (mono_class_get_namespace(klass) ,"System.Reflection", 17) == 0)
     {
         // Avoid stack overflow due to self-referencing reflection elements
         return scope.Escape(result);

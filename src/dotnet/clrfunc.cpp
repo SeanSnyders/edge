@@ -347,10 +347,7 @@ v8::Local<v8::Object> ClrFunc::MarshalCLRObjectToV8(System::Object^ netdata)
 //    const char* cType = (const char*)(void*)Marshal::StringToHGlobalAnsi((System::String^)type->FullName);
 //    DBG(cType);
 
-    if (0 == System::String::Compare(type->FullName, "System.Reflection.RuntimeMethodInfo")
-        || 0 == System::String::Compare(type->FullName, "System.Reflection.RuntimeModule")
-        || 0 == System::String::Compare(type->FullName, "System.Reflection.RuntimeAssembly")
-        || 0 == System::String::Compare(type->FullName, "System.Reflection.RuntimeConstructorInfo")) {
+    if (type->FullName->StartsWith("System.Reflection")) {
         // Avoid stack overflow due to self-referencing reflection elements
         return scope.Escape(result);
     }
