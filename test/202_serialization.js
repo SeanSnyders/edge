@@ -2,7 +2,7 @@ var edge = require('../lib/edge.js'), assert = require('assert'), path = require
 
 var edgeTestDll = process.env.EDGE_USE_CORECLR ? 'test' : path.join(__dirname, 'Edge.Tests.dll');
 
-describe.only('serialization', function () {
+describe('serialization', function () {
 
     it('complex exception serialization', function (done) {
         var func = edge.func({
@@ -40,10 +40,15 @@ describe.only('serialization', function () {
                  }
                  */}
         });
-        assert.throws(
-            function () {func("JavaScript", function (error, result) {})},
-            /A network-related or instance-specific error occurred while establishing a connection to SQL Server'/
-        );
+        func("JavaScript", function (error, result) {
+            let exception = error.toString();
+            let contains = exception.indexOf('A network-related or instance-specific error occurred while establishing a connection to SQL Server') !== -1
+                            ||exception.indexOf('Server does not exist or connection refused') !== -1;
+
+            assert.ok(contains);
+
+            done();
+        });
     });
 
 });
