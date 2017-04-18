@@ -1,9 +1,7 @@
 Edge.js: .NET and Node.js in-process [![Build Status](https://travis-ci.org/agracio/edge.svg)](https://travis-ci.org/agracio/edge)
 ====
 
-> This is a fork of https://github.com/tjanczuk/edge aimed at providing support for Node.js 7.x.
-
-> NPM package is published to `edge-js`. Use `npm install edge-js` and `require('edge-js')`
+> This is a fork of https://github.com/tjanczuk/edge (in turn forked from original project https://github.com/tjanczuk/edge) aimed at fixing cross-platform support of Electron, Edge, and .Net Core.
 
 **NEW** Edge.js is now on Slack at https://edgejs.slack.com. Join [here](https://webtask.it.auth0.com/api/run/tjanczuk/edgejs-slack-invite). 
  
