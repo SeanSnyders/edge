@@ -10,11 +10,11 @@
   },
 
   "frameworks": {
-    "net40": {
-      "bin": {
-        "assembly": "bin/{configuration}/net40/EdgeJs.dll"
-      }
-    },
+    //"net40": {
+    //  "bin": {
+    //    "assembly": "bin/{configuration}/net40/EdgeJs.dll"
+    //  }
+    //},
 
     "netstandard1.6": {
       "dependencies": {
