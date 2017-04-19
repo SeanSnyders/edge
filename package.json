@@ -45,6 +45,11 @@
     "url": "http://github.com/agracio/edge/issues"
   },
   "scripts": {
+    "build-edgejs-dll-osx": "dotnet restore ./src/double/Edge.Js && dotnet build -c Debug --no-incremental ./src/double/Edge.Js && cp /Users/sean/Documents/Development/edge/src/double/Edge.js/bin/Debug/netstandard1.6/EdgeJs.dll /Users/sean/.nuget/packages/Edge.js/6.5.1/lib/netstandard1.6/ && cp /Users/sean/Documents/Development/edge/src/double/Edge.js/bin/Debug/netstandard1.6/EdgeJs.pdb /Users/sean/.nuget/packages/Edge.js/6.5.1/lib/netstandard1.6",
+    "build-edgejs-native-osx": "npm run build-env-osx && PKG_CONFIG_PATH=/Library/Frameworks/Mono.framework/Versions/Current/lib/pkgconfig node-gyp rebuild -debug",
+    "build-env-osx": "export npm_config_runtime=electron && export npm_config_target=1.6.2 && export npm_config_target_arch=x64 && export npm_config_disturl=https://atom.io/download/electron",
+    "build-osx": "npm run build-edgejs-native-osx && npm run build-edgejs-dll-osx",
+
     "install": "node tools/install.js",
     "test": "node tools/test.js",
     "jshint": "node ./tools/runJsHint.js"

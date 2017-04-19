@@ -58,7 +58,7 @@ if (process.platform === 'win32') {
 	if (dotnetPath) {
 		spawn(dotnetPath, ['restore'], { stdio: 'inherit', cwd: path.resolve(__dirname, '..', 'lib', 'bootstrap') })
 			.on('close', function() {
-				spawn(dotnetPath, ['build', '--configuration', 'Release'], { stdio: 'inherit', cwd: path.resolve(__dirname, '..', 'lib', 'bootstrap') })
+				spawn(dotnetPath, ['build', '--configuration', 'Debug'], { stdio: 'inherit', cwd: path.resolve(__dirname, '..', 'lib', 'bootstrap') })
 					.on('close', function() {
 						require('./checkplatform');
 					});
@@ -71,5 +71,5 @@ if (process.platform === 'win32') {
 } 
 
 else {
-	spawn('node-gyp', ['configure', 'build'], { stdio: 'inherit' });
+	spawn('node-gyp', ['configure', 'build', '-debug'], { stdio: 'inherit' });
 }
